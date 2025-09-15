@@ -1,0 +1,12 @@
+{
+  "tasks": {
+    "build": "bash -c 'source .env && deno compile --allow-run --allow-env --env-file=.env --allow-read --allow-write -o $BINARY_NAME src/main.ts'"
+    "run": "deno run --allow-run --allow-env --env-file=.env --allow-read --allow-write src/main.ts",
+   },
+  "imports": {
+    "@src/": "./src/",
+    "@std/datetime": "jsr:@std/datetime@^0.225.4",
+    "@cliffy/command": "jsr:@cliffy/command@^1.0.0-rc.8",
+    "@std/path": "jsr:@std/path@^1.1.2"
+  }
+}
