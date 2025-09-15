@@ -1,0 +1,6 @@
+{
+  "INTERNAL_ERROR": {
+    "REGEX_NOT_FOUND": "INTERNAL_ERROR: regex not found",
+    "DEMILITER_NOT_FOUND": "INTERNAL_ERROR: demiliter not found"
+  }
+}
