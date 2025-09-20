@@ -1,5 +1,5 @@
 import { Command } from "@cliffy/command";
-import { binaryName } from "@src/values.ts";
+import { binaryName } from "@src/env.ts"
 export default new Command()
   .description(`Update ${binaryName} cli`)
   .action(async () => {

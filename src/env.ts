@@ -8,5 +8,5 @@ function requireEnv(name: string): string {
 }
 export const binaryName = requireEnv("BINARY_NAME");
 export const binaryVersion = requireEnv("BINARY_VERSION");
-export const ftUser = requireEnv("BINARY_VERSION");
-export const ftEmail = requireEnv("BINARY_VERSION");
+export const ftUser = requireEnv("FT_USER");
+export const ftEmail = requireEnv("FT_EMAIL");

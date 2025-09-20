@@ -53,3 +53,7 @@ export const languageDemiliters: { [lang: string]: string[] | undefined } = {
   "xsl": slashes,
   "yaml": hashes,
 };
+
+
+export const isSupportedLang = (languageId: string) =>
+  languageId in languageDemiliters;
