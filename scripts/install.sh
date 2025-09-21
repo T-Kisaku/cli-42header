@@ -4,6 +4,7 @@ set -e
 
 REPO="T-Kisaku/cli-42header"
 PROJECT_ENV_URL="https://raw.githubusercontent.com/${REPO}/main/project.env"
+# TODO
 BIN_URL="https://github.com/${REPO}/releases/download/${VERSION}/${BINARY_NAME}"
 LATEST_VERSION=$(curl -sL "https://api.github.com/repos/${REPO}/releases/latest" | grep '"tag_name":' | cut -d '"' -f 4)
 INSTALL_DIR="${HOME}/.local/bin"
