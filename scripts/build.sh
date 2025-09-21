@@ -3,6 +3,8 @@ set -a
 source project.env
 set +a
 
+mkdir -p dist
+
 if [ -n "$TARGET" ]; then
   deno compile \
     --allow-run \
@@ -11,7 +13,7 @@ if [ -n "$TARGET" ]; then
     --allow-read \
     --allow-write \
     --target="$TARGET" \
-    --output="$BINARY_NAME-$TARGET" \
+    --output="./dist/$BINARY_NAME-$TARGET" \
     src/main.ts
 else
   deno compile \
