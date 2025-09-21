@@ -8,7 +8,7 @@ import {
   renderHeader,
 } from "@src/header/info.ts";
 
-export const applyHeader = async (filePath: string) => {
+const applyHeader = async (filePath: string) => {
   const fileExt = extname(filePath).slice(1);
   if (!isSupportedLang(fileExt)) {
     return null;
@@ -21,8 +21,9 @@ export const applyHeader = async (filePath: string) => {
       ? newHeaderInfo(fileName, getHeaderInfo(original.header))
       : newHeaderInfo(fileName);
     let generatedHeader = renderHeader(info, fileExt);
-    if(!original.header)
-    generatedHeader += "\n";
+    if (!original.header) {
+      generatedHeader += "\n";
+    }
     fileContent = generatedHeader + original.body;
     await Deno.writeTextFile(filePath, fileContent);
     return filePath;
@@ -32,3 +33,20 @@ export const applyHeader = async (filePath: string) => {
     return null;
   }
 };
+
+export async function applyHeaders(paths: string[]) {
+  for (const path of paths) {
+    const stat = await Deno.stat(path);
+    if (stat.isFile) {
+      const appliedPath = await applyHeader(path);
+      if (appliedPath) {
+        console.log(appliedPath);
+      }
+    } else if (stat.isDirectory) {
+      for await (const entry of Deno.readDir(path)) {
+        const childPath = `${path}/${entry.name}`;
+        await applyHeaders([childPath]);
+      }
+    }
+  }
+}
