@@ -1,6 +1,12 @@
 {
   "tasks": {
-    "build": "bash -c 'source project.env && deno compile --allow-run --allow-env --env-file=project.env --allow-read --allow-write -o $BINARY_NAME src/main.ts'"
+    "build": "./scripts/build.sh",
+    "build-all-arch": "bash -c 'deno task build:*'",
+    "build:linux-x64": "TARGET=x86_64-unknown-linux-gnu bash ./scripts/build.sh",
+    "build:linux-arm64": "TARGET=aarch64-unknown-linux-gnu bash ./scripts/build.sh",
+    "build:macos-x64": "TARGET=x86_64-apple-darwin bash ./scripts/build.sh",
+    "build:macos-arm64": "TARGET=aarch64-apple-darwin bash ./scripts/build.sh",
+    "build:win-x64": "TARGET=x86_64-pc-windows-msvc bash ./scripts/build.sh",
     "run": "deno run --allow-run --allow-env --env-file=project.env --allow-read --allow-write src/main.ts",
    },
   "imports": {
