@@ -25,7 +25,7 @@ jobs:
           deno-version: v2.x
 
       - name: Compile into binary
-        run: deno task build
+        run: deno task build-all-arch
 
       - name: Create GitHub Release
         id: create_release
