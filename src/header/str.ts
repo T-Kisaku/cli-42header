@@ -53,10 +53,6 @@ export const setFieldValue = (header: string, name: string, value: string) => {
     throw new Error(MSGS.INTERNAL_ERROR.REGEX_NOT_FOUND);
   }
   const [_, offset, field] = matched;
-  //TODO
-  // return header.slice(0, offset.length)
-  //   + pad(value, field.length)
-  //   + header.slice(offset.length + field.length);
   return header.substr(0, offset.length)
     .concat(pad(value, field.length))
     .concat(header.substr(offset.length + field.length));

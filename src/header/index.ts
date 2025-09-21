@@ -28,7 +28,6 @@ const applyHeader = async (filePath: string) => {
     await Deno.writeTextFile(filePath, fileContent);
     return filePath;
   } catch (error) {
-    //TODO
     console.error("Error reading file:", error);
     return null;
   }
