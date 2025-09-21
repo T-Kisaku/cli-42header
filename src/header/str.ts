@@ -7,12 +7,10 @@ import { genericTemplate } from "@src/header/template.ts";
 const pad = (value: string, width: number) =>
   value.concat(" ".repeat(width)).substr(0, width);
 
-
-
 export const splitHeaderAndBody = (
-  text: string
+  text: string,
 ): { header: string | null; body: string | null } => {
-  const headerRegex = `^(.{80}(\r\n|\n)){10}`;
+  const headerRegex = `^(.{80}(\r\n|\n)){11}`;
   const match = text.match(headerRegex);
 
   if (!match) {

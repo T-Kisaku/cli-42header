@@ -15,13 +15,15 @@ export const applyHeader = async (filePath: string) => {
   }
   try {
     let fileContent = await Deno.readTextFile(filePath);
-    const { header: currentHeader, body } = splitHeaderAndBody(fileContent);
+    const original = splitHeaderAndBody(fileContent);
     const fileName = basename(filePath);
-    const info: HeaderInfo = currentHeader
-      ? getHeaderInfo(currentHeader)
+    const info: HeaderInfo = original.header
+      ? newHeaderInfo(fileName, getHeaderInfo(original.header))
       : newHeaderInfo(fileName);
-    const generatedHeader = renderHeader(info, fileExt);
-    fileContent = generatedHeader + body;
+    let generatedHeader = renderHeader(info, fileExt);
+    if(!original.header)
+    generatedHeader += "\n";
+    fileContent = generatedHeader + original.body;
     await Deno.writeTextFile(filePath, fileContent);
     return filePath;
   } catch (error) {
