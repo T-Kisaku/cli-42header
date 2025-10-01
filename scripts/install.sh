@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO="T-Kisaku/cli-42header"
+REPO="T-Kisaku/42header-cli"
 PROJECT_ENV_URL="https://raw.githubusercontent.com/${REPO}/main/project.env"
 API_BASE="https://api.github.com/repos/${REPO}"
 INSTALL_DIR="${HOME}/.local/bin"
