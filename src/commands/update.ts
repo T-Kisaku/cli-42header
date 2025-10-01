@@ -1,12 +1,12 @@
 import { Command } from "@cliffy/command";
-import { binaryName } from "@src/env.ts"
+import { binaryName } from "@src/env.ts";
+const INSTALL_SCRIPT_URL =
+  "https://raw.githubusercontent.com/T-Kisaku/42header-cli/main/scripts/install.sh" as const;
 export default new Command()
   .description(`Update ${binaryName} cli`)
   .action(async () => {
-    const url =
-      "https://raw.githubusercontent.com/T-Kisaku/nikki-cli/main/scripts/install.sh";
     const cmd = new Deno.Command("sh", {
-      args: ["-c", `curl -fsSL ${url} | sh`],
+      args: ["-c", `curl -fsSL ${INSTALL_SCRIPT_URL} | sh`],
       stdout: "inherit",
       stderr: "inherit",
     });
