@@ -4,6 +4,6 @@
 
 ```sh
 
-curl -fsSL https://raw.githubusercontent.com/T-Kisaku/cli-42header/main/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/T-Kisaku/42header-cli/main/scripts/install.sh | bash
 
  ```
