@@ -16,6 +16,7 @@ const percents = ["%% ", " %%"];
 
 export const languageDemiliters: { [lang: string]: string[] | undefined } = {
   "c": slashes,
+  "h": slashes,
   "coffeescript": hashes,
   "cpp": slashes,
   "css": slashes,
@@ -53,7 +54,6 @@ export const languageDemiliters: { [lang: string]: string[] | undefined } = {
   "xsl": slashes,
   "yaml": hashes,
 };
-
 
 export const isSupportedLang = (languageId: string) =>
   languageId in languageDemiliters;
